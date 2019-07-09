@@ -10,7 +10,7 @@ pipeline {
         }
         stage('build') {
             steps {
-
+                bat 'npm install react-native-cli'
                 dir("C:/Users/User/AppData/Local/Android/Sdk/tools/bin") {
                     bat 'echo no | avdmanager create avd -n test -k system-images;android-29;google_apis;x86'
                 }
@@ -30,7 +30,7 @@ pipeline {
                     steps {
                         sleep 300
                         bat 'adb root'
-                        bat 'C:/Users/User/AppData/Roaming/npm/react-native run-android'
+                        bat 'react-native run-android'
 
                     }
                 }
