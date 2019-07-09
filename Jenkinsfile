@@ -4,7 +4,7 @@ pipeline {
         stage('build') {
             steps {
                 dir("C:/Users/User/AppData/Local/Android/Sdk/tools/bin") {
-                    bat 'avdmanager create avd -n test -k system-image;android-29;google_apis;x86'
+                    bat 'avdmanager create avd -n test -k system-images;android-29;google_apis;x86'
                 }
                 dir("C:/Users/User/AppData/Local/Android/Sdk/emulator"){
                     bat 'emulator -list-avds'
