@@ -30,7 +30,7 @@ pipeline {
                     steps {
                         sleep 300
                         bat 'adb root'
-                        bat 'react-native run-android'
+                        bat 'C:/Users/User/AppData/Roaming/npm/react-native run-android'
 
                     }
                 }
