@@ -11,9 +11,11 @@ pipeline {
         stage('run') {
             parallel {
                 stage('run avd') {
-                    dir("C:/Users/User/AppData/Local/Android/Sdk/emulator"){
-                        bat 'emulator -list-avds'
-                        bat 'emulator -avd test'
+                    steps {
+                        dir("C:/Users/User/AppData/Local/Android/Sdk/emulator"){
+                            bat 'emulator -list-avds'
+                            bat 'emulator -avd test'
+                        }
                     }
                 }
                 stage('run app') {
