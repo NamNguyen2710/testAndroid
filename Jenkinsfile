@@ -28,7 +28,7 @@ pipeline {
                 }
                 stage('run app') {
                     steps {
-                        bat 'timeout 180'
+                        sleep 300
                         bat 'adb root'
                         bat 'react-native run-android'
 
@@ -36,6 +36,7 @@ pipeline {
                 }
                 stage('stop emu') {
                     steps {
+                        sleep 600
                         bat 'adb emu kill'
                     }
                 }
