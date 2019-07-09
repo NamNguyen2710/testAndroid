@@ -13,13 +13,17 @@ pipeline {
             }
         }
         stage('run') {
-            bat 'adb root'
-            bat 'react-native run-android'
+            steps {
+                bat 'adb root'
+                bat 'react-native run-android'
+            }
         }
         stage('clean'){
-            bat 'adb emu kill'
-            dir("C:/Users/User/AppData/Local/Android/Sdk/tools/bin") {
-                bat 'avdmanager delete avd -n test'
+            steps {
+                bat 'adb emu kill'
+                dir("C:/Users/User/AppData/Local/Android/Sdk/tools/bin") {
+                    bat 'avdmanager delete avd -n test'
+                }
             }
         }
     }
