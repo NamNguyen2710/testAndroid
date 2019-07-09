@@ -1,8 +1,16 @@
 pipeline {
     agent any
     stages {
+        stage('clean'){
+            steps {
+                dir("C:/Users/User/AppData/Local/Android/Sdk/tools/bin") {
+                    bat 'avdmanager delete avd -n test'
+                }
+            }
+        }
         stage('build') {
             steps {
+
                 dir("C:/Users/User/AppData/Local/Android/Sdk/tools/bin") {
                     bat 'echo no | avdmanager create avd -n test -k system-images;android-29;google_apis;x86'
                 }
@@ -30,13 +38,6 @@ pipeline {
                     steps {
                         bat 'adb emu kill'
                     }
-                }
-            }
-        }
-        stage('clean'){
-            steps {
-                dir("C:/Users/User/AppData/Local/Android/Sdk/tools/bin") {
-                    bat 'avdmanager delete avd -n test'
                 }
             }
         }
