@@ -36,11 +36,11 @@ pipeline {
                     }
                 }
             }
-            stage('stop emu') {
-                    steps {
-                        bat 'adb -s emulator 5554 emu kill'
-                    }
-                }
+        }
+        stage('stop emu') {
+            steps {
+                bat 'adb -s emulator 5554 emu kill'
+            }
         }
     }
 }
